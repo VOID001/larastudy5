@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Task;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -24,7 +26,7 @@ Route::get('/', function () {
 Route::post('/task', function(Request $request){
 
     //Use a validator to check the data
-    $validator = Validator::make($request->all(),[
+    $validator = Validator::make($request->all(), [
         'name' => 'required | max:255'
     ]);
 
@@ -46,5 +48,5 @@ Route::post('/task', function(Request $request){
  */
 
 Route::delete('/task/{id},', function($id){
-    
+
 });
