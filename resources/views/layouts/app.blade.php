@@ -11,10 +11,16 @@
     </head>
         <body>
             <div class="container">
+            <!-- I do some personalization here -->
                 <nav class="navbar navbar-default">
-
+                    <ul class="navbar-text">
+                        <h2>Task List</h2>
+                    </ul>
                 </nav>
+            <!-- The code above is different from the tutorial -->
             </div>
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </body>
 </html>

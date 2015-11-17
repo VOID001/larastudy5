@@ -2,6 +2,7 @@
 
 @section("content")
     <div class="panel-body">
+        @include('common.errors')
         <form action = "/task" method = "POST" class = "form-horizontal">
             {{ csrf_field() }}
             <!-- Task name here -->
@@ -22,6 +23,49 @@
             </div>
 
         </form>
+
+
+        <!-- Show current Tasks -->
+        @if(count($tasks) > 0)
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    Current Tasks
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Tasks
+                            </th>
+                            <th>
+                                Time
+                            </th>
+                            <th>
+                                Operation
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <!--Table Body-->
+                    <tbody>
+                        @foreach($tasks as $task)
+                            <tr>
+                                <td class="table-hover">
+                                    <div>{{ $task->name }}</div>
+                                </td>
+                                <td class="t">
+                                    <div>{{ $task->created_at }}</div>
+                                </td>
+
+                                <td>
+                                    <!-- TODO: Delete button -->
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </div>
+            </div>
+        @endif
     </div>
 
  @endsection

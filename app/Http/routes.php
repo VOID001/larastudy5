@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use App\Task;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,7 +16,11 @@ use App\Task;
  * Get the task page
  */
 Route::get('/', function () {
-    return view('tasks');
+    $tasks = Task::orderBy('created_at', 'asc')->get();
+    //$tasks = DB::table('task')->orderBy('created_at', 'asc')->get();
+    return view('tasks',[
+        'tasks' => $tasks
+    ]);
 });
 
 /*
