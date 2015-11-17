@@ -10,7 +10,25 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*
+ * Get the task page
+ */
 Route::get('/', function () {
-    return view('welcome');
+    return view('tasks');
+});
+
+/*
+ * Add a task
+ */
+
+Route::post('/task', function(Request $request){
+
+});
+
+/*
+ * Delete a task
+ */
+
+Route::delete('/task/{id},', function($id){
+
 });
