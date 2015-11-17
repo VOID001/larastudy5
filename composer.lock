@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "465a13f03335d76d02a2639d4b53b707",
-    "content-hash": "96f308a9c3b422f12f370e58ed22bb05",
+    "hash": "471abf1f506e7b038be04a5e307887bb",
+    "content-hash": "52ca3db66f26ee655649bac9884227e1",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -46,7 +46,7 @@
                     "Barryvdh\\LaravelIdeHelper\\": "src"
                 }
             },
-            "notification-url": "http://packagist.cn/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1142,7 +1142,7 @@
                     "Symfony\\Component\\ClassLoader\\": ""
                 }
             },
-            "notification-url": "http://packagist.cn/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
