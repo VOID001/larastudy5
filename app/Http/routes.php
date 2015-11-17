@@ -23,6 +23,22 @@ Route::get('/', function () {
 
 Route::post('/task', function(Request $request){
 
+    //Use a validator to check the data
+    $validator = Validator::make($request->all(),[
+        'name' => 'required | max:255'
+    ]);
+
+    //Fail the Validation
+    if($validator->fails())
+    {
+        return Redirect('/')->withInput()->withErrors($validator);
+    }
+
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
+
+    return Redirect('/');
 });
 
 /*
@@ -30,5 +46,5 @@ Route::post('/task', function(Request $request){
  */
 
 Route::delete('/task/{id},', function($id){
-
+    
 });
