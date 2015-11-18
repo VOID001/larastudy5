@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
  * Get the task page
  */
 Route::get('/', function () {
-    $tasks = Task::orderBy('created_at', 'asc')->get();
+    $tasks = Task::orderBy('name', 'asc')->get();
     //$tasks = DB::table('task')->orderBy('created_at', 'asc')->get();
     return view('tasks',[
         'tasks' => $tasks
