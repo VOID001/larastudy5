@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
  * Get the task page
  */
 Route::get('/', function () {
-    $tasks = Task::orderBy('name', 'asc')->get();
+    $tasks = Task::orderBy('isfinish', 'asc')->orderBy('name', 'asc')->get();
     //$tasks = DB::table('task')->orderBy('created_at', 'asc')->get();
     return view('tasks',[
         'tasks' => $tasks
@@ -53,6 +53,15 @@ Route::post('/task', function(Request $request){
 
 Route::delete('/task/{id}', function($id){
     Task::findOrFail($id)->delete();
+
+    return Redirect('/');
+});
+
+Route::post('/finish/{id}', function($id){
+    $taskobj = Task::findOrFail($id);
+    $taskobj->isfinish = true;
+    $taskobj->finish_at = date('Y-m-d-H:i:s');
+    $taskobj->save();
 
     return Redirect('/');
 });

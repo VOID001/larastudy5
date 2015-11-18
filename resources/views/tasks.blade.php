@@ -38,10 +38,13 @@
                                 Tasks
                             </th>
                             <th>
-                                Time
+                                Time/Finish Time
                             </th>
                             <th>
                                 Operation
+                            </th>
+                            <th>
+                                Status
                             </th>
                         </tr>
                     </thead>
@@ -54,7 +57,11 @@
                                     <div>{{ $task->name }}</div>
                                 </td>
                                 <td class="t">
-                                    <div>{{ $task->created_at }}</div>
+                                    @if($task->isfinish == false)
+                                        <div>{{ $task->created_at }}</div>
+                                    @else
+                                        <div class="text-success">{{ $task->finish_at }}</div>
+                                    @endif
                                 </td>
 
                                 <td>
@@ -63,6 +70,17 @@
                                         {{ method_field('DELETE') }}
                                         <button class="btn btn-danger"> Delete Task </button>
                                     </form>
+                                </td>
+
+                                <td>
+                                    @if($task->isfinish == false)
+                                        <form action="/finish/{{ $task->id }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <button class="btn btn-warning">Pending, Click to Finsh</button>
+                                        </form>
+                                    @else
+                                        <button class="btn btn-success">Finished</button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
